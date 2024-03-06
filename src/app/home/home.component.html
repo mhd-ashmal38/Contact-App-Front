@@ -1,0 +1,30 @@
+<!-- navbar -->
+<app-header></app-header>
+
+<div class="flex flex-col md:flex-row justify-center md:justify-evenly p-4 md:p-10 gap-4">
+    <div class="card w-full md:w-96 bg-base-100 shadow-xl mb-4 md:mb-0">
+        <figure class="px-6 pt-6">
+            <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/256/Users-icon.png" alt="Shoes"
+                class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+            <div class="card-actions">
+                <button routerLink="/user/contacts" class="btn btn-outline btn-neutral rounded-full px-16">My Contacts</button>
+            </div>
+        </div>
+    </div>
+    <div class="card w-full md:w-96 bg-base-100 shadow-xl mb-4 md:mb-0">
+        <figure class="px-6 pt-6">
+            <img src="https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-3/256/Add-Male-User-icon.png" alt="Shoes"
+                class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+            <div class="card-actions">
+                <button routerLink="user/add" class="btn btn-outline btn-neutral rounded-full px-16">Add New Contact</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

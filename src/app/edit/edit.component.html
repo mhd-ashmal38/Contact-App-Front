@@ -1,0 +1,128 @@
+<!-- navbar -->
+<app-header></app-header>
+
+<!-- Contact Us -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="max-w-xl mx-auto">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white">
+                Edit Contact
+            </h1>
+        </div>
+    </div>
+
+    <div class="mt-12 max-w-2xl mx-auto">
+        <!-- Card -->
+        <div class="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-8 dark:border-gray-700">
+            <form #addContactform="ngForm">
+                <div class="avatar flex justify-center items-center mb-8">
+                    <div class="w-24 rounded-xl">
+                        <img [src]="user.photo" />
+                    </div>
+                </div>
+                <div class="grid gap-4 lg:gap-6">
+                    <!-- Grid -->
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                        <div>
+                            <div>
+                                <label for="id"
+                                    class="block text-md text-gray-700 font-medium dark:text-white">Id</label>
+                                <input type="text" #id="ngModel" [(ngModel)]="user.id" name="id"
+                                    class="input input-bordered w-full" id="id" required pattern="[0-9a-zA-Z]*" />
+                            </div>
+
+                            <!-- validation - error message for id -->
+                            <div *ngIf="id.invalid&&id.touched" class="mb-1 text-red-600">Invalid Id</div>
+                        </div>
+
+
+
+
+                        <div>
+                            <div>
+                                <label for="lname"
+                                    class="block mb-2 text-md text-gray-700 font-medium dark:text-white">Full
+                                    Name</label>
+                                <input type="text" #name="ngModel" [(ngModel)]="user.name" name="lname"
+                                    placeholder="Type here" class="input input-bordered w-full max-w-xs" id="lname"
+                                    required pattern="[a-zA-Z ]*" />
+                            </div>
+                            <!-- error message for name -->
+                            <div *ngIf="name.invalid&&name.touched" class="mb-1 text-red-600">Invalid Username</div>
+                        </div>
+                    </div>
+                    <!-- End Grid -->
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+
+                        <div>
+                            <div>
+                                <label for="phone"
+                                    class="block mb-2 text-md text-gray-700 font-medium dark:text-white">Phone
+                                    Number</label>
+                                <input type="text" #phone="ngModel" [(ngModel)]="user.mobile" name="phone" placeholder="Type here"
+                                    class="input input-bordered w-full max-w-xs" id="phone" required pattern="[0-9]+" />
+                            </div>
+                            <!-- error message for phone -->
+                            <div *ngIf="phone.invalid&&phone.touched" class="mb-3 text-danger">Invalid Phone Number</div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <label for="email"
+                                    class="block mb-2 text-md text-gray-700 font-medium dark:text-white">Email</label>
+                                <input type="text" #email="ngModel" [(ngModel)]="user.email" name="email"
+                                    placeholder="Type here" class="input input-bordered w-full max-w-xs" id="email"
+                                    email required />
+                            </div>
+                            <!-- error message for email -->
+                            <div *ngIf="email.invalid&&email.touched" class="mb-3 text-red-600">Invalid Email</div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-2">
+                        <label for="profile" class="block text-md text-gray-700 font-medium dark:text-white">Profile
+                            Picture</label>
+                        <input type="text" [(ngModel)]="user.photo" name="profile" class="input input-bordered w-full"
+                            id="profile" placeholder="Enter the URL"/>
+                    </div>
+
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+
+                        <div>
+                            <label for="company"
+                                class="block mb-2 text-md text-gray-700 font-medium dark:text-white">Company</label>
+                            <input type="text" [(ngModel)]="user.company" name="company" placeholder="Type here"
+                                class="input input-bordered w-full max-w-xs" id="company" />
+                        </div>
+
+                        <div>
+                            <label for="title"
+                                class="block mb-2 text-md text-gray-700 font-medium dark:text-white">Title</label>
+                            <input type="text" [(ngModel)]="user.title" name="title" placeholder="Type here"
+                                class="input input-bordered w-full max-w-xs" id="title" />
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- End Grid -->
+
+                <div class="mt-6 flex gap-2">
+                    <button (click)="cancelUpdate(user.id)" type="button" class="btn btn-secondary w-1/2">Cancel</button>
+                    <button [disabled]="addContactform.invalid" (click)="updateContact()" type="button" class="btn btn-primary w-1/2">Save Contact</button>
+                </div>
+            </form>
+        </div>
+        <!-- End Card -->
+    </div>
+</div>
+<!-- End Contact Us -->
+
+
+<!-- footer -->
+<app-footer></app-footer>
